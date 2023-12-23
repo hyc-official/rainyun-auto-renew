@@ -4,11 +4,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const apikey = process.env.apikey;
+const prodtype = process.env.prodtype;
+const prodid = parseInt(process.env.prodid, 10);
+const duration = parseInt(process.env.duration, 10);
 
 const apis = [
     {
-        path: "/daily-rewards",
-        rainyun_apiurl : "https://api.v2.rainyun.com/user/reward/tasks",
+        path: "/point-renew",
+        rainyun_apiurl : "https://api.v2.rainyun.com/product/point_renew",
         fetch_options: {
             method: "POST",
             headers: {
@@ -17,7 +20,9 @@ const apis = [
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                task_name: "每日签到",
+                duration_day: duration,
+                product_id: prodid,
+                product_type: prodtype
             }),
             redirect: "follow",
         },

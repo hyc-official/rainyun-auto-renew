@@ -14,7 +14,7 @@
     ],
     "crons": [
         {
-            "path": "/daily-rewards",
+            "path": "/point-renew",
             "schedule": "0 0 * * *"
         }
     ]
